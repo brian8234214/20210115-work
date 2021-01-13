@@ -5,6 +5,10 @@
     </head>
     <body>
         <form method=post action="login.php">
+            //GET 或 POST 都可以傳遞資料，但兩者在應用方面需要做選擇
+            //GET 安全性：表單參數與填寫內容可在 URL 看到。
+            //psst 安全性：透過 HTTP Request 方式，故參數與填寫內容不會顯示於 URL。
+//POST 是將表單資料放在 message-body 進行傳送，在不偷看封包的情況下較安全些，此外在傳送檔案的時候會使用到 multi-part 編碼，將檔案與其他的表單欄位一併放在 message-body 中進行傳送。
             帳號：<input type=text name="id"><br />
             密碼：<input type=password name="pwd"><p></p>
             <input type=submit value="登入"> <input type=reset value="清除">
