@@ -1,8 +1,10 @@
 ﻿<?php 
-    error_reporting(0);
+    error_reporting(0); //報告執行時錯誤
     $conn = mysqli_connect("localhost", "root", "", "mydb");
+//建立資料庫連線，如果$conn=false代表連結不成功
     if (mysqli_connect_error($conn))
       die("無法連線資料庫");
+//如果連接失敗，顯示錯誤
     $sql="select * from bulletin where bid = {$_GET['bid']}"; 
     //echo $sql;
     $result=mysqli_query($conn, $sql);
@@ -11,9 +13,11 @@
 echo "
 <html>
 <head><title>修改佈告</title></head>
-<body>
+<body> 
+//用來呈現網頁的主要內容
   <h2>修改佈告</h2>
   <form action='bulletin_edit.php' method='post'>
+  //按下送出表單之後，會將資料傳送到 bulletin_edit.php 這程式
     <input type=hidden name=bid value=$row[bid]>
     佈告標題：<input  type='text' name='title' size=200 value='$row[title]'><p>      
     佈告內容：<p>
